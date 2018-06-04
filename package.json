@@ -1,0 +1,20 @@
+{
+  "name": "@bitfinex/lib-js-util-number",
+  "version": "0.0.1",
+  "description": "Bitfinex Lib Utility for Numbers",
+  "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
+  "keywords": [
+    "bitfinex"
+  ],
+  "dependencies": {
+    "bignumber.js": "^7.2.1"
+  },
+  "engine": {
+    "node": ">=6.0"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitfinexcom/lib-js-util-number.git"
+  }
+}

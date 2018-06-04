@@ -1,1 +1,1 @@
-# lib-js-util-number
+# lib-js-util-symbol
