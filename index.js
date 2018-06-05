@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const BN = require('bignumber.js')
 
 BN.config({ EXPONENTIAL_AT: [-18, 30] })
