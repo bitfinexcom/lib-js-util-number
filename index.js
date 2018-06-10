@@ -32,8 +32,13 @@ const nN = (v, dfl = null) => {
   return +v
 }
 
+const patchQN = () => {
+  require(`${__dirname}/quick.js`)
+}
+
 module.exports = {
   nBN_valid: nBN_valid,
   nBN: nBN,
-  nN: nN
+  nN: nN,
+  patchQN: patchQN
 }
