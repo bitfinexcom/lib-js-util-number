@@ -32,6 +32,11 @@ const nN = (v, dfl = null) => {
   return +v
 }
 
+function qn_num_fix (n, p = 8) {
+  if (!_.isFinite(+n)) n = 0
+  return (+n).toFixed(p)
+}
+
 const patchQN = () => {
   require(`${__dirname}/quick.js`)
 }
@@ -40,5 +45,6 @@ module.exports = {
   nBN_valid: nBN_valid,
   nBN: nBN,
   nN: nN,
-  patchQN: patchQN
+  patchQN: patchQN,
+  qn_num_fix: qn_num_fix
 }
