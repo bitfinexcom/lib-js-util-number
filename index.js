@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const BN = require('bignumber.js')
 
-BN.config({ EXPONENTIAL_AT: [-18, 30] })
+BN.config({ EXPONENTIAL_AT: [-20, 40] })
 
 const nBN_valid = (v, dfl = null) => {
   let valid = false
