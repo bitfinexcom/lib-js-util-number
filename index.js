@@ -42,6 +42,7 @@ const patchQN = () => {
 }
 
 module.exports = {
+  BN: BN,
   nBN_valid: nBN_valid,
   nBN: nBN,
   nN: nN,
