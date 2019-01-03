@@ -67,6 +67,7 @@ module.exports = {
   pI: pI,
   BN: BN,
   nBN_valid: nBN_valid,
+  nBN_isFinite: nBN_isFinite,
   nBN: nBN,
   nN: nN,
   patchQN: patchQN,
