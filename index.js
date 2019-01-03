@@ -19,7 +19,7 @@ const nBN_isFinite = v => {
 
   try {
     let n = nBN(v)
-    valid = nBN.isFinite()
+    valid = n.isFinite()
   } catch (e) {
     valid = false
   }
