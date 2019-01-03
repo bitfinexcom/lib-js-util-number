@@ -14,6 +14,19 @@ const nBN_valid = (v, dfl = null) => {
   return valid
 }
 
+const nBN_isFinite = v => {
+  let valid = false
+
+  try {
+    let n = nBN(v)
+    valid = nBN.isFinite()
+  } catch (e) {
+    valid = false
+  }
+
+  return valid
+}
+
 const nBN = (v, dfl = null) => {
   if (v instanceof BN) return v
   if (!_.isFinite(pF(v))) v = dfl
