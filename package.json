@@ -1,6 +1,6 @@
 {
   "name": "@bitfinex/lib-js-util-number",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Bitfinex Lib Utility for Numbers",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
   "keywords": [
