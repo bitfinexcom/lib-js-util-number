@@ -32,6 +32,10 @@ const nN = (v, dfl = null) => {
   return +v
 }
 
+const pF = v => {
+  return parseFloat(v)
+}
+
 function qn_num_fix (n, p = 8) {
   if (!_.isFinite(+n)) n = 0
   return (+n).toFixed(p)
@@ -42,6 +46,7 @@ const patchQN = () => {
 }
 
 module.exports = {
+  pF: pF,
   BN: BN,
   nBN_valid: nBN_valid,
   nBN: nBN,
