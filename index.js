@@ -58,17 +58,17 @@ const qnRound = (x, digits = 0) => {
   return Math.round(x * n) / n
 }
 
-const qnFloor(x, digits = 0) => {
+const qnFloor = (x, digits = 0) => {
   const n = Math.pow(10, digits)
   return Math.floor(x * n) / n
 }
 
-const qnCeil(x, digits = 0) => {
+const qnCeil = (x, digits = 0) => {
   const n = Math.pow(10, digits)
   return Math.ceil(x * n) / n
 }
 
-function qnToPrecFloor(x, digits = 1) {
+const qnToPrecFloor = (x, digits = 1) => {
   if (digits < 1) {
     throw 'Significant digits must be 1 or greater'
   }
@@ -77,7 +77,7 @@ function qnToPrecFloor(x, digits = 1) {
   return qnFloor(x, digits - scaleFactor - 1)
 }
 
-function qnToPrecCeil(x, digits = 1) {
+const qnToPrecCeil = (x, digits = 1) => {
   if (digits < 1) {
     throw 'Significant digits must be 1 or greater'
   }
@@ -86,7 +86,7 @@ function qnToPrecCeil(x, digits = 1) {
   return qnCeil(x, digits - scaleFactor - 1)
 }
 
-function qnToPrecRound(x, digits = 1) {
+const qnToPrecRound = (x, digits = 1) => {
   if (digits < 1) {
     throw 'Significant digits must be 1 or greater'
   }
