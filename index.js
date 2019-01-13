@@ -53,6 +53,48 @@ const pI = v => {
   return parseInt(v)
 }
 
+const qnRound = (x, digits = 0) => {
+  const n = Math.pow(10, digits)
+  return Math.round(x * n) / n
+}
+
+const qnFloor(x, digits = 0) => {
+  const n = Math.pow(10, digits)
+  return Math.floor(x * n) / n
+}
+
+const qnCeil(x, digits = 0) => {
+  const n = Math.pow(10, digits)
+  return Math.ceil(x * n) / n
+}
+
+function qnToPrecFloor(x, digits = 1) {
+  if (digits < 1) {
+    throw 'Significant digits must be 1 or greater'
+  }
+
+  const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
+  return qnFloor(x, digits - scaleFactor - 1)
+}
+
+function qnToPrecCeil(x, digits = 1) {
+  if (digits < 1) {
+    throw 'Significant digits must be 1 or greater'
+  }
+
+  const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
+  return qnCeil(x, digits - scaleFactor - 1)
+}
+
+function qnToPrecRound(x, digits = 1) {
+  if (digits < 1) {
+    throw 'Significant digits must be 1 or greater'
+  }
+
+  const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
+  return qnRound(x, digits - scaleFactor - 1)
+}
+
 function qn_num_fix (n, p = 8) {
   if (!_.isFinite(pF(n))) n = 0
   return pF(n).toFixed(p)
@@ -65,6 +107,12 @@ const patchQN = () => {
 module.exports = {
   pF: pF,
   pI: pI,
+  qnToPrecFloor: qnToPrecFloor,
+  qnToPrecCeil: qnToPrecCeil,
+  qnToPrecRound: qnToPrecRound,
+  qnFloor: qnFloor,
+  qnCeil: qnCeil,
+  qnRound: qnRound,
   BN: BN,
   nBN_valid: nBN_valid,
   nBN_isFinite: nBN_isFinite,
