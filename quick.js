@@ -50,6 +50,10 @@ QN.prototype.integerValue = function (x) {
   return x === 2 ? Math.ceil(this) : Math.floor(this)
 }
 
+QN.prototype.toNumber() = function () {
+  return this
+}
+
 QN.max = function () {
   return Math.max.apply(Math, arguments)
 }
