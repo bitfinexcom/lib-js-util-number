@@ -46,6 +46,10 @@ QN.prototype.dp = function (x) {
   return +this.toFixed(x)
 }
 
+QN.prototype.integerValue = function (x) {
+  return x === 2 ? Math.ceil(this) : Math.floor(this)
+}
+
 QN.max = function () {
   return Math.max.apply(Math, arguments)
 }
