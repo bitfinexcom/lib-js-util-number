@@ -50,7 +50,7 @@ QN.prototype.integerValue = function (x) {
   return x === 2 ? Math.ceil(this) : Math.floor(this)
 }
 
-QN.prototype.toNumber() = function () {
+QN.prototype.toNumber = function () {
   return this
 }
 
