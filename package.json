@@ -1,17 +1,26 @@
 {
   "name": "@bitfinex/lib-js-util-number",
-  "version": "0.0.18",
+  "version": "1.0.0",
   "description": "Bitfinex Lib Utility for Numbers",
   "author": "prdn <paolo@bitfinex.com> (https://bitfinex.com/)",
   "keywords": [
     "bitfinex"
   ],
-  "dependencies": {
-    "bignumber.js": "^9.0.0",
-    "lodash": "^4.17.21"
+  "scripts": {
+    "lint": "bfx-lint-js",
+    "lint:fix": "bfx-lint-js --fix",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "brittle-node test/*.test.js"
   },
-  "engine": {
-    "node": ">=6.0"
+  "dependencies": {
+    "bignumber.js": "^9.3.1"
+  },
+  "devDependencies": {
+    "@bitfinex/lint-js": "^1.1.0",
+    "brittle": "^4.5.0"
+  },
+  "engines": {
+    "node": ">=22.0"
   },
   "license": "Apache-2.0",
   "repository": {
