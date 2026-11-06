@@ -1,4 +1,3 @@
-const _ = require('lodash')
 const BN = require('bignumber.js')
 
 BN.config({ EXPONENTIAL_AT: [-20, 40] })
@@ -31,8 +30,9 @@ const nBNIsFinite = v => {
 
 const nBN = (v, dfl = null) => {
   if (v instanceof BN) return v
-  if (!_.isFinite(pF(v))) v = dfl
-  if (_.isNull(v) || _.isUndefined(v) || !_.isFinite(pF(v))) {
+  if (!Number.isFinite(pF(v))) v = dfl
+  // null and undefined parse to NaN, so this also rejects them
+  if (!Number.isFinite(pF(v))) {
     throw new Error('BigNum(' + v + '): invalid')
   }
   return new BN(v + '')
@@ -40,8 +40,9 @@ const nBN = (v, dfl = null) => {
 
 const nN = (v, dfl = null) => {
   if (v instanceof Number) return v
-  if (!_.isFinite(pF(v))) v = dfl
-  if (_.isNull(v) || _.isUndefined(v) || !_.isFinite(pF(v))) {
+  if (!Number.isFinite(pF(v))) v = dfl
+  // null and undefined parse to NaN, so this also rejects them
+  if (!Number.isFinite(pF(v))) {
     throw new Error('Number(' + v + '): invalid')
   }
   return +v
@@ -98,7 +99,7 @@ const qnToPrecRound = (x, digits = 1) => {
 }
 
 function qnNumFix (n, p = 8) {
-  if (!_.isFinite(pF(n))) n = 0
+  if (!Number.isFinite(pF(n))) n = 0
   return pF(n).toFixed(p)
 }
 
