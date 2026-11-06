@@ -2,7 +2,7 @@
 
 Number helpers (rounding, precision, BigNumber wrappers) for Bitfinex services.
 
-Requires Node 22 or newer (see `.nvmrc`).
+Requires Node 22 or newer.
 
 | Command | What it does |
 | --- | --- |
