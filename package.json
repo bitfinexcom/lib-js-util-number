@@ -6,12 +6,19 @@
   "keywords": [
     "bitfinex"
   ],
+  "scripts": {
+    "lint": "bfx-lint-js .",
+    "lint:fix": "bfx-lint-js . --fix"
+  },
   "dependencies": {
     "bignumber.js": "^9.0.0",
     "lodash": "^4.17.21"
   },
-  "engine": {
-    "node": ">=6.0"
+  "devDependencies": {
+    "@bitfinex/lint-js": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=22.0"
   },
   "license": "Apache-2.0",
   "repository": {

@@ -3,7 +3,9 @@ const BN = require('bignumber.js')
 
 BN.config({ EXPONENTIAL_AT: [-20, 40] })
 
-const nBN_valid = (v, dfl = null) => {
+const ERR_SIGNIFICANT_DIGITS = 'Significant digits must be 1 or greater'
+
+const nBNValid = (v, dfl = null) => {
   let valid = false
 
   try {
@@ -14,11 +16,11 @@ const nBN_valid = (v, dfl = null) => {
   return valid
 }
 
-const nBN_isFinite = v => {
+const nBNIsFinite = v => {
   let valid = false
 
   try {
-    let n = nBN(v)
+    const n = nBN(v)
     valid = n.isFinite()
   } catch (e) {
     valid = false
@@ -70,7 +72,7 @@ const qnCeil = (x, digits = 0) => {
 
 const qnToPrecFloor = (x, digits = 1) => {
   if (digits < 1) {
-    throw 'Significant digits must be 1 or greater'
+    throw new Error(ERR_SIGNIFICANT_DIGITS)
   }
 
   const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
@@ -79,7 +81,7 @@ const qnToPrecFloor = (x, digits = 1) => {
 
 const qnToPrecCeil = (x, digits = 1) => {
   if (digits < 1) {
-    throw 'Significant digits must be 1 or greater'
+    throw new Error(ERR_SIGNIFICANT_DIGITS)
   }
 
   const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
@@ -88,14 +90,14 @@ const qnToPrecCeil = (x, digits = 1) => {
 
 const qnToPrecRound = (x, digits = 1) => {
   if (digits < 1) {
-    throw 'Significant digits must be 1 or greater'
+    throw new Error(ERR_SIGNIFICANT_DIGITS)
   }
 
   const scaleFactor = Math.floor(Math.log10(Math.abs(x)))
   return qnRound(x, digits - scaleFactor - 1)
 }
 
-function qn_num_fix (n, p = 8) {
+function qnNumFix (n, p = 8) {
   if (!_.isFinite(pF(n))) n = 0
   return pF(n).toFixed(p)
 }
@@ -105,19 +107,20 @@ const patchQN = () => {
 }
 
 module.exports = {
-  pF: pF,
-  pI: pI,
-  qnToPrecFloor: qnToPrecFloor,
-  qnToPrecCeil: qnToPrecCeil,
-  qnToPrecRound: qnToPrecRound,
-  qnFloor: qnFloor,
-  qnCeil: qnCeil,
-  qnRound: qnRound,
-  BN: BN,
-  nBN_valid: nBN_valid,
-  nBN_isFinite: nBN_isFinite,
-  nBN: nBN,
-  nN: nN,
-  patchQN: patchQN,
-  qn_num_fix: qn_num_fix
+  pF,
+  pI,
+  qnToPrecFloor,
+  qnToPrecCeil,
+  qnToPrecRound,
+  qnFloor,
+  qnCeil,
+  qnRound,
+  BN,
+  // Public snake_case names kept so existing consumers do not break.
+  nBN_valid: nBNValid,
+  nBN_isFinite: nBNIsFinite,
+  nBN,
+  nN,
+  patchQN,
+  qn_num_fix: qnNumFix
 }
